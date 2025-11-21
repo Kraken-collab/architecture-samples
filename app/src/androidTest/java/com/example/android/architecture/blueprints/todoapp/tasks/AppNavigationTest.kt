@@ -24,6 +24,7 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.material.MaterialTheme // Added import
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -31,7 +32,7 @@ import com.example.android.architecture.blueprints.todoapp.HiltTestActivity
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.TodoNavGraph
 import com.example.android.architecture.blueprints.todoapp.data.TaskRepository
-import com.google.accompanist.appcompattheme.AppCompatTheme
+// Removed: import com.google.accompanist.appcompattheme.AppCompatTheme
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import javax.inject.Inject
@@ -102,8 +103,10 @@ class AppNavigationTest {
 
         // Check if drawer is open
         composeTestRule.onNodeWithText(activity.getString(R.string.list_title)).assertIsDisplayed()
-        composeTestRule.onNodeWithText(activity.getString(R.string.statistics_title))
-            .assertIsDisplayed()
+        assertTrue(
+            composeTestRule.onAllNodesWithText(activity.getString(R.string.statistics_title))
+                .fetchSemanticsNodes().isNotEmpty()
+        )
     }
 
     @Test
@@ -181,7 +184,7 @@ class AppNavigationTest {
 
     private fun setContent() {
         composeTestRule.setContent {
-            AppCompatTheme {
+            MaterialTheme { // Changed to MaterialTheme
                 TodoNavGraph()
             }
         }

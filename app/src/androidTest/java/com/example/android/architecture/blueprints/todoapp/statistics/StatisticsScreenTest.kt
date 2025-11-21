@@ -16,6 +16,7 @@
 
 package com.example.android.architecture.blueprints.todoapp.statistics
 
+import androidx.compose.material.MaterialTheme // Added import
 import androidx.compose.material.Surface
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -25,7 +26,7 @@ import androidx.test.filters.MediumTest
 import com.example.android.architecture.blueprints.todoapp.HiltTestActivity
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.TaskRepository
-import com.google.accompanist.appcompattheme.AppCompatTheme
+// Removed: import com.google.accompanist.appcompattheme.AppCompatTheme
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import javax.inject.Inject
@@ -71,7 +72,7 @@ class StatisticsScreenTest {
         }
 
         composeTestRule.setContent {
-            AppCompatTheme {
+            MaterialTheme { // Changed to MaterialTheme
                 Surface {
                     StatisticsScreen(
                         openDrawer = { },

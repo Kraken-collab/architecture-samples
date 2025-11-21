@@ -47,7 +47,7 @@ import androidx.compose.ui.unit.dp
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.TodoDestinations
 import com.example.android.architecture.blueprints.todoapp.TodoNavigationActions
-import com.google.accompanist.appcompattheme.AppCompatTheme
+// Removed: import com.google.accompanist.appcompattheme.AppCompatTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -174,7 +174,7 @@ private fun DrawerButton(
 @Preview("Drawer contents")
 @Composable
 fun PreviewAppDrawer() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             AppDrawer(
                 currentRoute = TodoDestinations.TASKS_ROUTE,

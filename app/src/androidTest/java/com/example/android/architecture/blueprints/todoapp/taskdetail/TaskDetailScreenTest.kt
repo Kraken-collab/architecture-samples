@@ -16,6 +16,7 @@
 
 package com.example.android.architecture.blueprints.todoapp.taskdetail
 
+import androidx.compose.material.MaterialTheme // Added import
 import androidx.compose.material.Surface
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsOff
@@ -27,8 +28,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.example.android.architecture.blueprints.todoapp.HiltTestActivity
+import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.TaskRepository
-import com.google.accompanist.appcompattheme.AppCompatTheme
+// Removed: import com.google.accompanist.appcompattheme.AppCompatTheme
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import javax.inject.Inject
@@ -100,7 +102,7 @@ class TaskDetailScreenTest {
 
     private fun setContent(activeTaskId: String) {
         composeTestRule.setContent {
-            AppCompatTheme {
+            MaterialTheme { // Changed to MaterialTheme
                 Surface {
                     TaskDetailScreen(
                         viewModel = TaskDetailViewModel(

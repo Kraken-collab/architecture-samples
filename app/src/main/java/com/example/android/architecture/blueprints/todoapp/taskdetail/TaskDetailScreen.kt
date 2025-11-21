@@ -47,7 +47,7 @@ import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.util.LoadingContent
 import com.example.android.architecture.blueprints.todoapp.util.TaskDetailTopAppBar
-import com.google.accompanist.appcompattheme.AppCompatTheme
+// Removed: import com.google.accompanist.appcompattheme.AppCompatTheme
 
 @Composable
 fun TaskDetailScreen(
@@ -149,7 +149,7 @@ private fun EditTaskContent(
 @Preview
 @Composable
 private fun EditTaskContentPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             EditTaskContent(
                 loading = false,
@@ -170,7 +170,7 @@ private fun EditTaskContentPreview() {
 @Preview
 @Composable
 private fun EditTaskContentTaskCompletedPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             EditTaskContent(
                 loading = false,
@@ -191,7 +191,7 @@ private fun EditTaskContentTaskCompletedPreview() {
 @Preview
 @Composable
 private fun EditTaskContentEmptyPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             EditTaskContent(
                 loading = false,

@@ -33,7 +33,6 @@ import androidx.test.filters.MediumTest
 import com.example.android.architecture.blueprints.todoapp.HiltTestActivity
 import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.TaskRepository
-import com.google.accompanist.appcompattheme.AppCompatTheme
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import javax.inject.Inject
@@ -44,6 +43,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import com.google.accompanist.themeadapter.appcompat.AppCompatTheme
 
 /**
  * Integration test for the Add Task screen.
@@ -70,7 +70,7 @@ class AddEditTaskScreenTest {
 
         // GIVEN - On the "Add Task" screen.
         composeTestRule.setContent {
-            AppCompatTheme {
+            com.google.accompanist.themeadapter.appcompat.AppCompatTheme { // Using fully qualified name
                 Surface {
                     AddEditTaskScreen(
                         viewModel = AddEditTaskViewModel(repository, SavedStateHandle()),

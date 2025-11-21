@@ -61,7 +61,7 @@ import com.example.android.architecture.blueprints.todoapp.tasks.TasksFilterType
 import com.example.android.architecture.blueprints.todoapp.tasks.TasksFilterType.COMPLETED_TASKS
 import com.example.android.architecture.blueprints.todoapp.util.LoadingContent
 import com.example.android.architecture.blueprints.todoapp.util.TasksTopAppBar
-import com.google.accompanist.appcompattheme.AppCompatTheme
+// Removed: import com.google.accompanist.appcompattheme.AppCompatTheme
 
 @Composable
 fun TasksScreen(
@@ -230,7 +230,7 @@ private fun TasksEmptyContent(
 @Preview
 @Composable
 private fun TasksContentPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             TasksContent(
                 loading = false,
@@ -280,7 +280,7 @@ private fun TasksContentPreview() {
 @Preview
 @Composable
 private fun TasksContentEmptyPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             TasksContent(
                 loading = false,
@@ -299,7 +299,7 @@ private fun TasksContentEmptyPreview() {
 @Preview
 @Composable
 private fun TasksEmptyContentPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             TasksEmptyContent(
                 noTasksLabel = R.string.no_tasks_all,
@@ -312,7 +312,7 @@ private fun TasksEmptyContentPreview() {
 @Preview
 @Composable
 private fun TaskItemPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             TaskItem(
                 task = Task(
@@ -330,7 +330,7 @@ private fun TaskItemPreview() {
 @Preview
 @Composable
 private fun TaskItemCompletedPreview() {
-    AppCompatTheme {
+    MaterialTheme { // Changed to MaterialTheme
         Surface {
             TaskItem(
                 task = Task(

@@ -17,7 +17,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    // alias(libs.plugins.kapt) // Removed
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.compose.compiler)
@@ -139,7 +138,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.lifecycle.viewModelCompose)
-    implementation(libs.accompanist.appcompat.theme)
+    implementation(libs.accompanist.themeadapter.appcompat) // Updated dependency
     implementation(libs.accompanist.swiperefresh)
 
     debugImplementation(composeBom)
