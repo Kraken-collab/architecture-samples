@@ -1,9 +1,33 @@
 pipeline {
     agent any
+
+    tools {
+        gradle 'gradle-8'  
+        jdk 'jdk17'
+    }
+
     stages {
-        stage('Test') {
+        stage('Checkout') {
             steps {
-                echo "Hello from Jenkins"
+                checkout scm
+            }
+        }
+
+        stage('Build Debug') {
+            steps {
+                sh 'gradle assembleDebug'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'gradle test'
+            }
+        }
+
+        stage('Archive APK') {
+            steps {
+                archiveArtifacts artifacts: '**/build/outputs/**/*.apk'
             }
         }
     }
