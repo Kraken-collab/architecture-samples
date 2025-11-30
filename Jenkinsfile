@@ -1,9 +1,16 @@
 pipeline {
     agent any
 
+    
     tools {
         gradle 'gradle-8'  
         jdk 'jdk17'
+    }
+    
+    stage('Setup local.properties') {
+        steps {
+            writeFile file: 'local.properties', text: "sdk.dir=/opt/android-sdk\n"
+        }
     }
 
     stages {
